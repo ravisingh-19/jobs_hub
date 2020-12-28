@@ -1,0 +1,142 @@
+{% extends 'user_webapp/base.html' %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<div id="titlebar" class="bg-theme py-5">
+	<div class="container">
+		<!-- Search Bar -->
+		<div class="row ">
+			<div class="col-12">
+				<h2 class="text-white fw-700 text-center">My Setting</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Page Content
+================================================== -->
+<section class="py-5 bg-light">
+<div class="container">
+	<div class="row">
+		<div class="col-12 content-left-offset">
+
+			<div class="listings-container">
+				<div class="row">
+					<div class="col-12 d-flex justify-content-center mb-4">
+						<a href="setting-notification.html" class="btn btn-dark rounded-pill px-4 py-2 mx-2">Notification</a>
+						<a href="setting-my-profile.html" class="btn btn-primary rounded-pill px-4 py-2 mx-2">My Profile</a>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-10 col-12">						
+						<div class="row">						
+							<div class="col-12">						
+								<!-- Job Listing -->
+								<div class="job-listing">
+
+									<!-- Job Listing Footer -->
+									<div class="job-listing-footer d-md-flex justify-content-between align-items-center">
+										<ul>
+											<li><h3><i class="icon-feather-user"></i> <strong>My Profile</strong></h3></li>
+										</ul>
+										<ul class="mt-2 mt-md-0">
+											<li><a href="" title="Edit Profile" class="btn btn-dark"><i class="icon-feather-edit text-white"></i></a></li>
+										</ul>
+									</div>
+
+									<!-- Job Listing Details -->
+									<div class="job-listing-details jld">
+										<!-- Details -->
+										<div class="job-listing-description">
+											<div class="row">
+												<div class="col-12 col-lg-4">
+													<p class="mt-0"><strong>Company Name:</strong></p>
+												</div>
+												<div class="col-12 col-lg-8">
+													<p class="mt-0">Loremipsum Pvt. Ltd.</p>
+												</div>
+												<div class="col-12 col-lg-4">
+													<p class="mt-0"><strong>Location:</strong></p>
+												</div>
+												<div class="col-12 col-lg-8">
+													<p class="mt-0">Delhi</p>
+												</div>
+												<div class="col-12 col-lg-4">
+													<p class="mt-0"><strong>Username:</strong></p>
+												</div>
+												<div class="col-12 col-lg-8">
+													<p class="mt-0">William Shakes</p>
+												</div>
+												<div class="col-12 col-lg-4">
+													<p class="mt-0"><strong>Email:</strong></p>
+												</div>
+												<div class="col-12 col-lg-8">
+													<p class="mt-0">user@gmail.com</p>
+												</div>
+												<div class="col-12 col-lg-4">
+													<p class="mt-0"><strong>Contact:</strong></p>
+												</div>
+												<div class="col-12 col-lg-8">
+													<p class="mt-0">+91 1234567897</p>
+												</div>
+												<div class="col-12 col-lg-4">
+													<p class="mt-0"><strong>Business type:</strong></p>
+												</div>
+												<div class="col-12 col-lg-8">
+													<p class="mt-0">Export/Import</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+</section>
+
+
+</div>
+<!-- Wrapper / End -->
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+</script>
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places"></script>
+
+{% endblock %}

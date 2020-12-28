@@ -1,0 +1,460 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+	
+<div class="intro-banner">
+	<div class="container">
+		
+		<!-- Intro Headline -->
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8">
+				<div class="banner-headline text-center">
+					<img src="{% static 'web_app/images/banner-works.png' %}" class="img-fluid">
+				</div>
+			</div>
+		</div>
+		
+		<!-- Search Bar -->
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-10">
+				<div class="intro-banner-search-form margin-top-95 mb-4">
+
+					<!-- Search Field -->
+					<div class="intro-search-field with-autocomplete">
+						<label for="autocomplete-input" class="field-title ripple-effect">What?</label>
+						<div class="input-with-icon">
+							<input id="" type="text" placeholder="Job Title or Keywords">
+							<i class="icon-line-awesome-pencil"></i>
+						</div>
+					</div>
+
+					<!-- Search Field -->
+					<div class="intro-search-field">
+						<label for ="intro-keywords" class="field-title ripple-effect">Where?</label>
+						<div class="input-with-icon">
+						<input id="intro-keywords" type="text" placeholder="City, State or Pin Code">
+							<i class="icon-material-outline-location-on"></i>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="intro-search-button">
+						<button class="button ripple-effect" onclick="window.location.href='jobs-list-layout-full-page-map.html'">Find Jobs</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Stats -->
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-10">
+				<button class="badge badge-light px-4 py-2 rounded-pill">Plumber</button>
+				<button class="badge badge-light px-4 py-2 rounded-pill">Electrician</button>
+				<button class="badge badge-light px-4 py-2 rounded-pill">Senior Plumber</button>
+				<button class="badge badge-light px-4 py-2 rounded-pill">Senior Carpenter</button>
+				<button class="badge badge-light px-4 py-2 rounded-pill">Helper</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<!-- Category Boxes -->
+<section class="section pt-5 pb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+
+				<div class="section-headline centered mb-5">
+					<h3 class="mb-2"><strong>Browse Categories</strong></h3>
+					<p>Mots popular categories of portal, sorted by popularity</p>
+				</div>
+
+				<!-- Category Boxes Container -->
+				<div class="categories-container categories-container-border">
+					<div class="owl-carousel owl_carousel slider-icon">
+	                  	<div class="item">
+							<a href="jobs-grid-layout-full-page.html" class="category-box rounded-0">
+							<div class="category-box-icon mb-4">
+								<img src="{% static 'user_webapp/images/ico-plumber.png' %}" class="img-fluid mx-auto">
+							</div>
+							<div class="category-box-content">
+								<h3>Plumbers</h3>
+								<p>(428 Jobs)</p>
+							</div>
+							</a>
+						</div>
+	                  	<div class="item">
+							<a href="jobs-grid-layout-full-page.html" class="category-box rounded-0">
+							<div class="category-box-icon mb-4">
+								<img src="{% static 'user_webapp/images/ico-electrician.png' %}" class="img-fluid mx-auto">
+							</div>
+							<div class="category-box-content">
+								<h3>Electricians</h3>
+								<p>(428 Jobs)</p>
+							</div>
+							</a>
+						</div>
+	                  	<div class="item">
+							<a href="jobs-grid-layout-full-page.html" class="category-box rounded-0">
+							<div class="category-box-icon mb-4">
+								<img src="{% static 'user_webapp/images/ico-carpenter.png' %}" class="img-fluid mx-auto">
+							</div>
+							<div class="category-box-content">
+								<h3>Carpenters</h3>
+								<p>(428 Jobs)</p>
+							</div>
+							</a>
+						</div>
+	                  	<div class="item">
+							<a href="jobs-grid-layout-full-page.html" class="category-box rounded-0">
+							<div class="category-box-icon mb-4">
+								<img src="{% static 'user_webapp/images/ico-maid.png' %}" class="img-fluid mx-auto">
+							</div>
+							<div class="category-box-content">
+								<h3>Office/Home Maids</h3>
+								<p>(428 Jobs)</p>
+							</div>
+							</a>
+						</div>
+	                  	<div class="item">
+							<a href="jobs-grid-layout-full-page.html" class="category-box rounded-0">
+							<div class="category-box-icon mb-4">
+								<img src="{% static 'user_webapp/images/ico-carpenter.png' %}" class="img-fluid mx-auto">
+							</div>
+							<div class="category-box-content">
+								<h3>Office/Home Maids</h3>
+								<p>(428 Jobs)</p>
+							</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Category Boxes / End -->
+
+
+<section class="how-it-works text-center section bg-theme py-5">
+	<div class="container">
+		<div class="section-headline centered mb-5">
+		<h3 class="text-white mb-2"><strong>How It Works?</strong></h3>
+		<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit ellentesque dignissim quam et <br> metus effici turac fringilla lorem facilisis.</p>
+	</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="work-process px-md-4">
+				<span class="process-icon">
+				<i class="icon-feather-user display-4 text-white"></i>
+				</span>
+				<h3 class="text-white mt-4 mb-3"><strong>Create an Account</strong></h3>
+				<p class="text-white">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="work-process step-2 px-md-4">
+				<span class="process-icon">
+				<i class="icon-feather-search display-4 text-white"></i>
+				</span>
+				<h3 class="text-white mt-4 mb-3"><strong>Search Jobs</strong></h3>
+				<p class="text-white">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+			</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="work-process step-3 px-md-4">
+				<span class="process-icon">
+				 <i class="icon-line-awesome-trophy display-4 text-white"></i>
+				</span>
+				<h3 class="text-white mt-4 mb-3"><strong>Apply</strong></h3>
+				<p class="text-white">Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Features Jobs -->
+<div class="section gray padding-top-65 padding-bottom-75">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				
+				<!-- Section Headline -->
+				<div class="section-headline margin-top-0 margin-bottom-35">
+					<h3><strong>Featured Jobs</strong></h3>
+					<a href="jobs-list-layout-full-page-map.html" class="headline-link">Browse All Jobs</a>
+				</div>
+				
+				<!-- Jobs Container -->
+				<div class="listings-container compact-list-layout margin-top-35">
+					
+					<!-- Job Listing -->
+					<a href="single-job-page.html" class="job-listing with-apply-button">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="{% static 'user_webapp/images/company-logo-01.png' %}" alt="">
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Senior Plumber Specialist</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+										<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Apply Button -->
+							<span class="list-apply-button ripple-effect">Apply Now</span>
+						</div>
+					</a>	
+
+
+					<!-- Job Listing -->
+					<a href="single-job-page.html" class="job-listing with-apply-button">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="{% static 'user_webapp/images/company-logo-05.png' %}" alt="">
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Carpenter Helper</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+										<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Apply Button -->
+							<span class="list-apply-button ripple-effect">Apply Now</span>
+						</div>
+					</a>
+					<!-- Job Listing -->
+					<a href="single-job-page.html" class="job-listing with-apply-button">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="{% static 'user_webapp/images/company-logo-02.png' %}" alt="">
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Electrician Head</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+										<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Apply Button -->
+							<span class="list-apply-button ripple-effect">Apply Now</span>
+						</div>
+					</a>
+					
+
+					<!-- Job Listing -->
+					<a href="single-job-page.html" class="job-listing with-apply-button">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="{% static 'user_webapp/images/company-logo-03.png' %}" alt="">
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Plumbing helper</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+										<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Apply Button -->
+							<span class="list-apply-button ripple-effect">Apply Now</span>
+						</div>
+					</a>
+
+					<!-- Job Listing -->
+					<a href="single-job-page.html" class="job-listing with-apply-button">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="{% static 'web_app/images/company-logo-05.png' %}" alt="">
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Electrican</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+										<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Apply Button -->
+							<span class="list-apply-button ripple-effect">Apply Now</span>
+						</div>
+					</a>
+
+				</div>
+				<!-- Jobs Container / End -->
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Featured Jobs / End -->
+
+<!-- Membership Plans -->
+<div class="section padding-top-60 padding-bottom-75">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="section-view">
+					<img src="{% static 'web_app/images/job-app.png' %}" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<!-- Section Headline -->
+				<div class="app-content">
+					<h1 class="mb-2"><strong>Work now. Get Paid. Work more when you want.</strong></h1>
+					<p>Jobshub gives you the flexibility to control<br>
+when, where, and how you spend your day.</p>
+					<div class="d-flex mb-3">
+						<a href="" target="_blank"><img src="{% static 'web_app/images/ios-app.png' %}" width="180" class="img-fluid mr-3"></a>
+						<a href="" target="_blank"><img src="{% static 'web_app/images/android-app.png' %}" width="180" class="img-fluid mr-3"></a>
+					</div>
+					<h4><strong><i>Available on iOS and Android</i></strong></h4>
+					<div class="row mt-4">
+						<div class="col-12">
+							<div class="intro-banner-search-form rounded-pill border">
+								<div class="intro-search-field with-label">
+									<div class="input-with-icon">
+									<input id="intro-keywords" type="text" placeholder="Enter your Mobile Number" class="pl-4">
+									</div>
+								</div>
+								<div class="intro-search-button">
+									<button class="button ripple-effect text-uppercase rounded-pill" onclick="">Get App</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Membership Plans / End-->
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/tippy.all.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/snackbar.js' %}"></script>
+<script src="{% static 'web_app/js/clipboard.min.js' %}"></script>
+<script src="{% static 'web_app/js/counterup.min.js' %}"></script>
+<script src="{% static 'web_app/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'web_app/js/slick.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+
+	// Autocomplete adjustment for homepage
+	if ($('.intro-banner-search-form')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	    }, 300);
+	}
+
+</script>
+<script>
+$(document).ready(function() {
+ $(".owl_carousel").owlCarousel({
+   //navigation : true,
+   nav:true,
+   dots:false,
+   navText:['',''],
+   loop : true,
+   responsive:{
+       0:{
+           items:1
+       },
+       600:{
+           items:2
+       },
+       1000:{
+           items:4
+       }
+   }
+ });
+});
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places&amp;callback=initAutocomplete"></script>
+
+{% endblock scripts %}

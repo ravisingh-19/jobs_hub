@@ -1,0 +1,255 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+<!-- Content
+================================================== -->
+<div id="titlebar" class="bg-theme">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-white">Blog</h2>
+				<span class="text-light">Featured Posts</span>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li>Blogs</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Section -->
+<div class="section gray py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8 col-lg-8">
+
+				<!-- Section Headline -->
+				<div class="section-headline margin-bottom-35">
+					<h4>Recent Posts</h4>
+				</div>
+
+				<!-- Blog Post -->
+			{% for data in blog_data %}
+				<a href="blog-detail.html" class="blog-post">
+					<!-- Blog Post Thumbnail -->
+					<div class="blog-post-thumbnail">
+						<div class="blog-post-thumbnail-inner">
+							<span class="blog-item-tag">{{data.blog_category.blog_category_name}}</span>
+							<img src="{{data.upload_feature_image.url}}" alt="">
+						</div>
+					</div>
+					<!-- Blog Post Content -->
+					
+					<div class="blog-post-content">
+						<span class="blog-post-date">{{data.published_date}}</span>
+						<h3>{{data.title}}</h3>
+						<p>{{data.paragraph_content|linebreaks}}</p>
+					</div>
+					<!-- Icon -->
+					<div class="entry-icon"></div>
+				</a>
+				
+			{% if blog_data.has_other_pages %}
+				<!-- Pagination -->
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- Pagination -->
+						<div class="pagination-container margin-top-10 margin-bottom-20">
+
+							<nav aria-label="Page navigation example">
+								<ul class="pagination">
+								  {% if blog_data.has_previous %}
+									<li class="page-item">
+									
+									  <a class="page-link" href="?category={{ data.blog_category.blog_category_value }}&page={{ blog_data.previous_page_number }}">Previous</a>
+									</li>
+								  {% else %}
+									<li class="page-item disabled">
+									  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+									</li>
+								  {% endif %}
+								  {% for i in blog_data.paginator.page_range %}
+									{% if blog_data.number == i %}
+									  <li class="page-item active" aria-current="page">
+										<span class="page-link">
+										  {{ i }}
+										  <span class="sr-only">(current)</span>
+										</span>
+									  </li>
+									{% else %}
+									  <li class="page-item"><a class="page-link" href="?category={{ data.blog_category.blog_category_value }}&page={{ i }}">{{ i }}</a></li>
+									{% endif %}
+								  {% endfor %}
+								  {% if blog_data.has_next %}
+									<li class="page-item">
+									  <a class="page-link" href="?category={{ data.blog_category.blog_category_value }}&page={{ blog_data.next_page_number }}">Next</a>
+									</li>
+								  {% else %}
+									<li class="page-item disabled">
+									  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+									</li>
+								  {% endif %}
+								</ul>
+							  </nav>
+						</div>
+					</div>
+				</div>
+				<!-- Pagination / End -->
+				{% endif %}
+				{% endfor %}
+			</div>
+
+
+			<div class="col-xl-4 col-lg-4 content-left-offset">
+				<div class="sidebar-container">
+					
+					<!-- Location -->
+					<div class="sidebar-widget margin-bottom-40">
+						<div class="input-with-icon">
+							<input id="" type="text" placeholder="Search">
+							<i class="icon-material-outline-search"></i>
+						</div>
+					</div>
+
+					<!-- Widget -->
+					<div class="sidebar-widget">
+
+						<h3><strong>Categories</strong></h3>
+						<ul id="id_blog" class="widget-tabs bg-white bx-sdw p-4 rounded">
+							{% for data in blog_category %}
+							<li class="mt-0" value="{{ data.val }}" class="text-dark">{{data.name}} ({{data.count}})</li>
+							{% endfor %}	
+						</ul>
+
+					</div>
+					<!-- Widget / End-->
+
+					<!-- Widget -->
+					<div class="sidebar-widget">
+
+						<h3><strong>Trending Posts</strong></h3>
+						<ul class="widget-tabs">
+
+							<!-- Post #1 -->
+							{% for data in blog_data %}
+							<li>
+								<a href="pages-blog-post.html" class="widget-content active">
+									<img src="{{data.upload_feature_image.url}}" alt="">
+									<div class="widget-text">
+										<h5>{{data.title}}</h5>
+										<span>{{data.published_date}}</span>
+									</div>
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+
+					</div>
+					<!-- Widget / End-->
+
+
+					<!-- Widget -->
+					<div class="sidebar-widget">
+						<h3><strong>Social Profiles</strong></h3>
+						<div class="freelancer-socials margin-top-25">
+							<ul>
+								<li><a href="#" title="Facebook" data-tippy-placement="top"><i class="icon-brand-facebook"></i></a></li>
+								<li><a href="#" title="Twitter" data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
+								<li><a href="#" title="Behance" data-tippy-placement="top"><i class="icon-brand-behance"></i></a></li>
+								<li><a href="#" title="Linkedin" data-tippy-placement="top"><i class="icon-brand-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+<!-- Section / End -->
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+<script src="{% static 'web_app/js/owl.carousel.js' %}"></script>
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+
+	// Autocomplete adjustment for homepage
+	if ($('.intro-banner-search-form')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	    }, 300);
+	}
+
+</script>
+<script>
+$(document).ready(function() {
+ $(".owl_carousel").owlCarousel({
+   //navigation : true,
+   nav:true,
+   dots:false,
+   navText:['',''],
+   loop : true,
+   responsive:{
+       0:{
+           items:1
+       },
+       600:{
+           items:2
+       },
+       1000:{
+           items:4
+       }
+   }
+ });
+});
+
+$(document).ready(function(){
+  $("#id_blog li").click(function(e){
+	e.preventDefault();
+	var parameter = '?category='+$(this).attr('value');
+	window.location.href = parameter;
+  });
+});
+</script>
+
+<script>
+	// var parameter = "?title="+$("#job_cat").text().trim()+"&place="+$('#place').val().trim()+"&type=&page=";
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places&amp;callback=initAutocomplete"></script>
+
+{% endblock scripts %}

@@ -1,0 +1,81 @@
+{% load static %}
+<!-- Header Container
+================================================== -->
+<header id="header-container" class="fullwidth inner-header">
+
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+			
+			<!-- Left Side Content -->
+			<div class="left-side">
+				
+				<!-- Logo -->
+				<div id="logo">
+					<a href="index.html"><img src="{% static 'web_app/images/logo.png' %}" alt=""></a>
+				</div>
+
+				<!-- Main Navigation -->
+				<nav id="navigation">
+					<ul id="responsive">
+						<li><a href="{% url 'index' %}" class="">Home</a></li>
+						{% if user.account_type == 'A' %}
+							<li><a href="{% url 'post-a-job' %}" class="">Post a Jobs</a></li>
+						{% endif %}
+						<li><a href="{% url 'jobs-search-list' %}" class="">Find Works</a></li>
+						<li><a href="{% url 'how-it-works' %}" class="">How it Works</a></li>
+						<li><a href="{% url 'blogs' %}" class="">Blogs</a></li>
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+				<!-- Main Navigation / End -->
+				
+			</div>
+			<!-- Left Side Content / End -->
+
+
+			<!-- Right Side Content / End -->
+			<div class="right-side">
+
+				<!--  User Notifications -->
+				<div class="header-widget hide-on-mobile">
+					<div class="header-notifications">
+						<div class="header-notifications-trigger ico-lg">
+							<a href="#"><i class="icon-brand-apple"></i></a>
+						</div>
+
+					</div>
+					<div class="header-notifications">
+						<div class="header-notifications-trigger ico-lg">
+							<a href="#"><i class="icon-brand-android"></i></a>
+						</div>
+					</div>
+				</div>
+				<!--  User Notifications / End -->
+
+				<!-- User Menu -->
+				<div class="header-widget py-3">
+					<a href="{% url 'register' %}" class="signup-btn btn btn-light rounded-pill border-dark px-4 mt-1">Signup</a>
+					<a href="{% url 'dashboard-login' %}" class="login-btn btn btn-dark rounded-pill px-4 mt-1">Login</a>
+				</div>
+				<!-- User Menu / End -->
+
+				<!-- Mobile Navigation Button -->
+				<span class="mmenu-trigger">
+					<button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</span>
+
+			</div>
+			<!-- Right Side Content / End -->
+
+		</div>
+	</div>
+	<!-- Header / End -->
+
+</header>
+<div class="clearfix"></div>
+<!-- Header Container / End -->

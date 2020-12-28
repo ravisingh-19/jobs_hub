@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+    <title>Jobshub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'web_app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'web_app/css/blue.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+        {% include 'user_webapp/headersuccess.html' %}
+    {% else %}
+        {% include 'user_webapp/header.html' %}
+    {% endif %}
+    {% block content %} {% endblock content %}
+    {% include 'user_webapp/footer.html' %}
+
+
+    {% block scripts %}
+        <!--- some scripts that apply to all pages -->
+    {% endblock %}
+
+</body>
+</html>

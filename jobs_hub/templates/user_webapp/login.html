@@ -1,0 +1,103 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Page Content
+================================================== -->
+<section class="py-5 bg-light">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 col-md-10 col-12">
+
+				<div class="login-register-page bg-white bx-sdw">
+					<!-- Welcome Text -->
+					<div class="welcome-text px-5 py-4 border-bottom">
+						<h3>Login to your Jobshub Account</h3>
+						<p class="mb-0">Welcome back to your gigworks assist web platform</p>
+					</div>
+					
+					<div class="welcome-foot px-5 py-4">
+						<div class="text-center">
+							{% if messages %}
+								{% for message in messages %}
+									<h3 class="alert alert-success text-dark">{{ message }}</h3>
+								{% endfor %}
+							{% endif %} 
+						</div><br>	
+					<!-- Form -->
+						<form method="POST" id="register-account-form">
+						{% csrf_token %}
+							<div class="input-with-icon-left">
+								<i class="icon-material-baseline-mail-outline"></i>
+								<input type="text" class="input-text with-border" name="email" id="email" 
+								placeholder="Email Address" autofocus required/>
+							</div>	
+
+							<div class="input-with-icon-left" data-tippy-placement="bottom">
+								<i class="icon-material-outline-lock"></i>
+								<input type="password" class="input-text with-border" name="password" id="password" 
+								placeholder="Password" required/>
+							</div>
+							 <div class="form-check mb-3">
+							    <input type="checkbox" class="form-check-input box-shadow-none" id="exampleCheck1">
+							    <label class="form-check-label" for="exampleCheck1"> Keep me signed in on this device.</label>
+							  </div>
+							<!-- Button -->
+							<button class="button button-sliding-icon ripple-effect margin-top-10" type="submit">Login<i class="icon-material-outline-arrow-right-alt"></i></button>
+						</form>
+						
+						
+						<!-- Social Login -->
+						<div class="social-login-separator"><span>or</span></div>
+						<p>Don't have an account? click <a href="{% url 'register' %}">here</a> to Register.</p>
+						<a href="{% url 'forgot-password' %}">Forgot Password?</a>
+						<a class="ml-4" href="{% url 'reset-password' %}">Reset password</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<!-- Scripts
+================================================== -->
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/tippy.all.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/snackbar.js' %}"></script>
+<script src="{% static 'web_app/js/clipboard.min.js' %}"></script>
+<script src="{% static 'web_app/js/counterup.min.js' %}"></script>
+<script src="{% static 'web_app/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'web_app/js/slick.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+<script src="{% static 'web_app/js/simplebar.min.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+{% endblock scripts  %}

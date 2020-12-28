@@ -1,0 +1,380 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+<div id="titlebar" class="bg-secondary py-4 border-bottom">
+	<div class="container">
+		<!-- Search Bar -->
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-10">
+				<div class="intro-banner-search-form mt-5">
+
+					<!-- Search Field -->
+					<div class="intro-search-field with-autocomplete">
+						<label for="autocomplete-input" class="field-title ripple-effect">What?</label>
+						<div class="input-with-icon">
+							<input id="title" type="text" name="job_title" placeholder="Job Title or Keywords">
+							<i class="icon-line-awesome-pencil"></i>
+						</div>
+					</div>
+
+					<!-- Search Field -->
+					<div class="intro-search-field">
+						<label for ="intro-keywords" class="field-title ripple-effect">Where?</label>
+						<div class="input-with-icon">
+						<input id="place" type="text" name="location" placeholder="State, City or Pin Code">
+							<i class="icon-material-outline-location-on"></i>
+						</div>
+					</div>
+
+					<!-- Button -->
+					<div class="intro-search-button">
+						<button class="button ripple-effect" id="id_jobtitle">Find Jobs</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Page Content
+================================================== -->
+<section class="py-5">
+<div class="container">
+	<div class="row">
+		<div class="col-xl-3 col-lg-4">
+			<div class="sidebar-container position-sticky">
+
+				<!-- Category -->
+				<div class="sidebar-widget">
+					<h3 class="fw-700">Category</h3>
+					<select id="id_job" onchange="return check1()" class="selectpicker default" data-selected-text-format="count" data-size="7" title="All Categories" >
+						{% for data in job_category_data %}
+						<option value="{{data.job_category_value}}">{{data.job_category_name}}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<!-- Side menu -->
+				<div class="sidebar-widget bx-sdw bg-white p-4">
+					<h3 class="fw-700">Salary</h3>
+					<ul class="list-inline">
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="two-step" checked="">
+								<label for="two-step"><span class="checkbox-icon"></span> 3-6 Lakhs (6)</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="three-step">
+								<label for="three-step"><span class="checkbox-icon"></span> 6-10 Lakhs (6)</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="four-step">
+								<label for="four-step"><span class="checkbox-icon"></span> 10-15 Lakhs (3)</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="five-step">
+								<label for="five-step"><span class="checkbox-icon"></span> 0-3 Lakhs (5)</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="six-step">
+								<label for="six-step"><span class="checkbox-icon"></span> 15-20 Lakhs (1)</label>
+							</div>
+						</li>
+					</ul>
+
+					<h3 class="fw-700">Pay Types</h3>
+					<ul class="list-inline">
+						<li>We guide you to look for another opportunity and work hard on your skills.
+
+							<div class="checkbox">
+								<input type="checkbox" id="seven-step" checked="">
+								<label for="seven-step"><span class="checkbox-icon"></span> Fix Pay</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="eight-step">
+								<label for="eight-step"><span class="checkbox-icon"></span> Hourly Pay</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="nine-step">
+								<label for="nine-step"><span class="checkbox-icon"></span> Daily Pay</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="ten-step">
+								<label for="ten-step"><span class="checkbox-icon"></span> Weekly Pay</label>
+							</div>
+						</li>
+						<li>
+							<div class="checkbox">
+								<input type="checkbox" id="eleven-step">
+								<label for="eleven-step"><span class="checkbox-icon"></span> Monthly Pay</label>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-xl-9 col-lg-8 content-left-offset">
+
+			<h3 class="page-title">Search Results "Plumber Fresher Jobs"</h3>
+
+			<div class="notify-box margin-top-15">
+				<div class="switch-container">
+					<label class="switch"><input type="checkbox"><span class="switch-button"></span><span class="switch-text">Turn on email alerts for this search</span></label>
+				</div>
+
+				<div class="sort-by">
+					<span>Sort by:</span>
+					<select id="id_jobpost" onchange="return check2()" class="selectpicker hide-tick">
+						<option value="Newest">Newest</option>
+						<option value="Oldest">Oldest</option>
+						<option value="Random">Random</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="listings-container margin-top-35">
+				
+				<!-- Job Listing -->
+				<div class="job-listing">
+
+					<!-- Job Listing Details -->
+					{% for data in job_data %}
+					<div class="job-listing-details">
+						<!-- Details -->
+						<div class="job-listing-description">
+							<h3 class="job-listing-title"><a href="job-detail.html" class="text-dark">{{data.job_title}}</a></h3>
+							<h4 class="job-listing-company"><i class="icon-material-outline-location-on"></i> {{data.location}}</h4>
+							<p class="job-listing-text">{{data.bio|linebreaks}}</p>
+						</div>
+
+						<!-- Bookmark -->
+						<span class="bookmark-icon"></span>
+					</div>
+
+					<!-- Job Listing Footer -->
+					<div class="job-listing-footer d-md-flex justify-content-between align-items-center">
+						<ul>
+							<li><i class="icon-material-outline-business-center"></i> {{data.job_type}}</li>
+							<li><i class="icon-material-outline-account-balance-wallet"></i> {{data.pay_rate}}</li>
+							<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+						</ul>
+						<ul class="mt-2 mt-md-0">
+							<li><a href="{% url 'job-detail' %}" class="btn btn-primary">Apply</a></li>
+							<li class="share-buttons position-relative">
+								<div class="btn btn-dark">Share</div>
+								<div class="share-buttons-content">
+									<ul class="share-buttons-icons">
+										<li><a href="#" data-button-color="#3b5998" title="Share on Facebook" data-tippy-placement="top"><i class="icon-brand-facebook-f"></i></a></li>
+										<li><a href="#" data-button-color="#1da1f2" title="Share on Twitter" data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
+										<li><a href="#" data-button-color="#dd4b39" title="Share on Google Plus" data-tippy-placement="top"><i class="icon-brand-whatsapp"></i></a></li>
+										<li><a href="#" data-button-color="#0077b5" title="Share on LinkedIn" data-tippy-placement="top"><i class="icon-brand-linkedin-in"></i></a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- Pagination -->
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12">
+						{% for data in job_data %}
+						{% if job_data.has_other_pages %}
+
+						<!-- Pagination -->
+						<div class="pagination-container margin-top-30 margin-bottom-60">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination justify-content-center">
+								
+								  {% if job_data.has_previous %}
+									<li class="page-item">
+									  <a class="page-link" href="?category={{ data.job_category.job_category_value }}&page={{ job_data.previous_page_number }}">Previous</a>
+									</li>
+								  {% else %}
+									<li class="page-item disabled">
+									  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+									</li>
+								  {% endif %}
+								  {% for i in job_data.paginator.page_range %}
+									{% if job_data.number == i %}
+									  <li class="page-item active" aria-current="page">
+										<span class="page-link">
+										  {{ i }}
+										  <span class="sr-only">(current)</span>
+										</span>
+									  </li>
+									{% else %}
+									  <li class="page-item"><a class="page-link" href="?category={{ data.job_category.job_category_value }}&page={{ i }}">{{ i }}</a></li>
+									{% endif %}
+								  {% endfor %}
+								  {% if job_data.has_next %}
+									<li class="page-item">
+									  <a class="page-link" href="?category={{ data.job_category.job_category_value }}&page={{ job_data.next_page_number }}">Next</a>
+									</li>
+								  {% else %}
+									<li class="page-item disabled">
+									  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+									</li>
+								  {% endif %}					  
+								</ul>
+							  </nav>
+						</div>
+					</div>
+				</div>
+				<!-- Pagination / End -->				
+				{% endif %}
+				{% endfor %}
+			</div>
+
+		</div>
+	</div>
+</div>
+</section>
+
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<!-- Scripts
+================================================== -->
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/tippy.all.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/snackbar.js' %}"></script>
+<script src="{% static 'web_app/js/clipboard.min.js' %}"></script>
+<script src="{% static 'web_app/js/counterup.min.js' %}"></script>
+<script src="{% static 'web_app/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'web_app/js/slick.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+</script>
+<script>
+
+	
+	function check(v){
+		var url_string = window.location.href
+		var url = new URL(url_string)
+		var v1 = url.searchParams.get(v)
+		alert("cxd"+v1)
+		return v1;
+	}
+
+	var parameter = ""
+	function check1(){
+		var v = document.getElementById('id_job').value;
+		if (check(v) != v){
+			if(parameter == null) {
+				parameter = "?"+"jobcategory="+v
+			}
+			else {
+				parameter = parameter+"&"+"jobcategory="+v
+			}
+			alert(parameter)
+			window.location.href = parameter
+		}
+		else {
+			window.location.href = ""
+		}
+		return true;
+	}
+
+
+	function check2(){
+		var v = document.getElementById('id_jobpost').value;
+		if(check(v) != v){
+			parameter = "?jobpost="+v
+			window.location.href = parameter
+		}
+		else {
+			window.location.href = ""
+		}
+		return true;
+	}
+
+	function check3(){
+		var v1 = document.getElementById('')
+	}
+
+
+</script>
+
+<script>
+	// $(document).ready(function() {
+	// 	$("#id_job").change(function (e) {
+	// 		e.preventDefault();
+	// 		var parameter = "?jobcategory="+$(this).val();
+	// 		window.location.href = parameter;
+	// 		});
+
+	// 	});
+
+
+	// $(document).ready(function() {
+	// 	$("#id_jobtitle").click(function (e) {
+	// 		e.preventDefault();
+	// 		var parameter = "?category={{dfgfd}}"+"&jobtitle="+$("#title").val()+"&palce="+$("#place").val();
+	// 		window.location.href = parameter;
+	// 		});
+	// 	});
+</script>
+
+
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+ <!-- <scrip src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places"></scrip> -->
+
+{% endblock scripts %}

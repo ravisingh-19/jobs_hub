@@ -1,0 +1,389 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<div id="titlebar" class="bg-secondary py-5 border-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-white fw-700">&nbsp;</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page Content
+================================================== -->
+<section class="py-5 pt-md-0 bg-light">
+	<div class="container">
+		<div class="row detail-yaxis">
+			
+			<!-- Content -->
+			<div class="col-xl-8 col-lg-8 content-right-offset detail">
+				<div class="bg-white bx-sdw p-4">
+
+					<div class="row single-page-header mb-4 border-bottom">
+						<div class="col-md-12">
+							<div class="single-page-header-inner">
+								<div class="left-side p-0">
+									<div class="header-details">
+										<h3>Restaurant General Manager</h3>
+										<ul class="mb-4">
+											<li class="mr-4"><i class="icon-line-awesome-suitcase"></i> Full Time</li>
+											<li class="mr-4"><div class="star-rating" data-rating="4.9"></div></li>
+											<li class="mr-4"><img class="flag" src="images/flags/gb.svg" alt=""> United Kingdom</li>
+											<li class="mr-0"><div class="verified-badge-with-title">Verified</div></li>
+										</ul>
+										<ul class="mb-4">
+											{% if request.user.is_authenticated %}
+											<li><a href="{% url 'user-profile' %}" class="btn px-4 text-white btn-primary">Apply Now</a></li>
+											{% else %}
+											<li><a href="{% url 'login' %}" class="btn px-4 text-white btn-primary">Login Now</a></li>
+											{% endif %}
+											
+											<li><a href="" class="btn px-4 text-white btn-dark">Save</a></li>
+											<li>
+												<!-- Share Buttons -->
+												<div class="share-buttons">
+													<div class="share-buttons-trigger"><i class="icon-feather-share-2"></i></div>
+													<div class="share-buttons-content">
+														<span><strong>Share It!</strong></span>
+														<ul class="share-buttons-icons">
+															<li><a href="#" data-button-color="#3b5998" title="Share on Facebook" data-tippy-placement="top"><i class="icon-brand-facebook-f"></i></a></li>
+															<li><a href="#" data-button-color="#1da1f2" title="Share on Twitter" data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
+															<li><a href="#" data-button-color="#dd4b39" title="Share on Google Plus" data-tippy-placement="top"><i class="icon-brand-google-plus-g"></i></a></li>
+															<li><a href="#" data-button-color="#0077b5" title="Share on LinkedIn" data-tippy-placement="top"><i class="icon-brand-linkedin-in"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<p class="d-flex justify-content-between"><a href="">Send me Jobs like this</a><span>Job Applicants: <strong>275</strong></span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="single-page-section">
+								<h3 class="fw-700">Job Description</h3>
+								<p>Job Description for Team Leader, Assistant Manager or Manager for Outbound Sales Process:</p>
+								<ul>
+								   <li>Good communication skills</li>
+								   <li>Have good knowledge in Digital Marketing (Outbound Sales)</li>
+								   <li>Team handling experience of 40 - 100 TSO's</li>
+								   <li>Data management & having Dialer Knowledge</li>
+								   <li>Must have Experience in Telesales outbound process</li>
+								   <li>Aware About the basic KRA and KPI's</li>
+								   <li>Knowledge of Attrition and Shrinkage</li>
+								   <li>Must have experience in hardcore sales outbound</li>
+								   <li>Quick thinking and problem solving skills</li>
+								   <li>Excellent verbal communication skills</li>
+								   <li>Must have dialer knowledge (Modes of Dialer and must have worked on Dialer)</li>
+								   <li>Must aware about rostering and manpower planning and people management and Billing.</li>
+								</ul>
+								<p>If experience in credit card sales would be highly preferred.<br>
+								Shift: Day Shift (9:30 AM - 6:30 PM)<br>
+								Working Days : 6 Days a Week</p>
+
+								<h3 class="fw-700 mt-4">Other Details</h3>
+								<div class="table-responsive">
+									<table class="table table-bordered">
+										<tr>
+											<td>Department:</td>
+											<td>Customer Service (Domestic)</td>
+										</tr>
+										<tr>
+											<td>Industry:</td>
+											<td>BPO / Call Center</td>
+										</tr>
+										<tr>
+											<td>Skills:</td>
+											<td>sales, team handling, digital marketing, problem solving, credit card 					operations, bpo, banking, communication skills, outbound, manpower 					planning, outbound process, mis, accounts, credit cards, people man					agement, planning, data management</td>
+										</tr>
+									</table>
+								</div>
+
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- white-background-shadow-box-end-->
+
+
+				<div class="single-page-section">
+					<h3 class="fw-700 mt-4">Similar Jobs</h3>
+
+					<div class="listings-container">
+	
+						<!-- Job Listing -->
+						<div class="job-listing">
+
+							<!-- Job Listing Details -->
+							<div class="job-listing-details">
+								<!-- Details -->
+								<div class="job-listing-description">
+									<h3 class="job-listing-title"><a href="" class="text-dark">Restaurant General Manager</a></h3>
+									<h4 class="job-listing-company"><i class="icon-material-outline-location-on"></i> Delhi</h4>
+									<p class="job-listing-text">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking.</p>
+								</div>
+
+								<!-- Bookmark -->
+								<span class="bookmark-icon"></span>
+							</div>
+
+							<!-- Job Listing Footer -->
+							<div class="job-listing-footer d-md-flex justify-content-between align-items-center">
+								<ul>
+									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+									<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
+									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+								</ul>
+								<ul class="mt-2 mt-md-0">
+									<li><a href="" class="btn btn-dark">Share</a></li>
+									<li><a href="" class="btn btn-primary">Apply</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- Job Listing -->
+						<div class="job-listing">
+
+							<!-- Job Listing Details -->
+							<div class="job-listing-details">
+								<!-- Details -->
+								<div class="job-listing-description">
+									<h3 class="job-listing-title"><a href="" class="text-dark">Restaurant General Manager</a></h3>
+									<h4 class="job-listing-company"><i class="icon-material-outline-location-on"></i> Delhi</h4>
+									<p class="job-listing-text">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking.</p>
+								</div>
+
+								<!-- Bookmark -->
+								<span class="bookmark-icon"></span>
+							</div>
+
+							<!-- Job Listing Footer -->
+							<div class="job-listing-footer d-md-flex justify-content-between align-items-center">
+								<ul>
+									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+									<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
+									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+								</ul>
+								<ul class="mt-2 mt-md-0">
+									<li><a href="" class="btn btn-dark">Share</a></li>
+									<li><a href="" class="btn btn-primary">Apply</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- Job Listing -->
+						<div class="job-listing">
+
+							<!-- Job Listing Details -->
+							<div class="job-listing-details">
+								<!-- Details -->
+								<div class="job-listing-description">
+									<h3 class="job-listing-title"><a href="" class="text-dark">Restaurant General Manager</a></h3>
+									<h4 class="job-listing-company"><i class="icon-material-outline-location-on"></i> Delhi</h4>
+									<p class="job-listing-text">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking.</p>
+								</div>
+
+								<!-- Bookmark -->
+								<span class="bookmark-icon"></span>
+							</div>
+
+							<!-- Job Listing Footer -->
+							<div class="job-listing-footer d-md-flex justify-content-between align-items-center">
+								<ul>
+									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
+									<li><i class="icon-material-outline-account-balance-wallet"></i> $35000-$38000</li>
+									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
+								</ul>
+								<ul class="mt-2 mt-md-0">
+									<li><a href="" class="btn btn-dark">Share</a></li>
+									<li><a href="" class="btn btn-primary">Apply</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+			</div>
+		</div>
+			
+
+			<!-- Sidebar -->
+			<div class="col-xl-4 col-lg-4">
+				<div class="bg-white bx-sdw p-4">
+					<div class="row">
+						<div class="col-12">
+							<div class="sidebar-container mb-0">
+
+								<!-- Sidebar Widget -->
+								<div class="sidebar-widget mb-0">
+									<h3 class="fw-700">Jobs you might be interested in</h3>
+									<ul class="widget-tabs jobs-widget">
+										<li><a href="" class="text-dark"><strong>Plumbing & Fire Fighting Engineer -  Construction Projects</strong><br><small>Posted 13 days ago</small></a></li>
+										<li><a href="" class="text-dark"><strong>Jr. MEP / Plumbing Engineer</strong><br><small>Posted 2 days ago</small></a></li>
+										<li><a href="" class="text-dark"><strong>Plumbing Engineer -  Construction Projects</strong><br><small>Posted 4 days ago</small></a></li>
+										<li><a href="" class="text-dark"><strong>Electrician Engineer -  Construction Projects</strong><br><small>Posted 5 days ago</small></a></li>
+									</ul>
+									<p class="text-right mb-4"><a href="">View All</a></p>
+
+									<h3 class="fw-700">Reviews</h3>
+									<ul class="widget-tabs jobs-widget">
+										<li><strong>Asst. architech for 6 years</strong><br>
+											<small>Anonymous</small><br>
+											<div class="star-rating">
+												<span class="star"></span>
+												<span class="star"></span>
+												<span class="star"></span>
+												<span class="star"></span>
+												<span class="star"></span>
+											</div>
+											<h4 class="mt-3"><strong>Likes</strong></h4>
+											<p>Dedication of employees and employer towards their duties.</p>
+										</li>
+									</ul>
+									<p class="text-right mb-4"><a href="">Read All 12 Reviews</a></p>
+
+									<h3 class="fw-700">Bookmark or Share</h3>
+
+									<!-- Bookmark Button -->
+									<button class="bookmark-button">
+										<span class="bookmark-icon"></span>
+										<span class="bookmark-text">Bookmark</span>
+										<span class="bookmarked-text">Bookmarked</span>
+									</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="more-side-widget mt-4">					
+					<h3 class="fw-700 mb-3">People also Searched:</h3>
+					<div class="row justify-content-center">
+						<div class="col-12 col-md-12">
+							<button class="badge badge-secondary px-4 py-2 mb-2 rounded-pill"><i class="icon-feather-search"></i> Plumber</button>
+							<button class="badge badge-secondary px-4 py-2 mb-2 rounded-pill"><i class="icon-feather-search"></i> Electrician</button>
+							<button class="badge badge-secondary px-4 py-2 mb-2 rounded-pill"><i class="icon-feather-search"></i> Senior Plumber</button>
+							<button class="badge badge-secondary px-4 py-2 mb-2 rounded-pill"><i class="icon-feather-search"></i> Senior Carpenter</button>
+							<button class="badge badge-secondary px-4 py-2 mb-2 rounded-pill"><i class="icon-feather-search"></i> Helper</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+</div>
+<!-- Wrapper / End -->
+
+
+<!-- Apply for a job popup
+================================================== -->
+<div id="small-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
+
+	<!--Tabs -->
+	<div class="sign-in-form">
+
+		<ul class="popup-tabs-nav">
+			<li><a href="#tab">Apply Now</a></li>
+		</ul>
+
+		<div class="popup-tabs-container">
+
+			<!-- Tab -->
+			<div class="popup-tab-content" id="tab">
+				
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3>Attach File With CV</h3>
+				</div>
+					
+				<!-- Form -->
+				<form method="post" id="apply-now-form">
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-outline-account-circle"></i>
+						<input type="text" class="input-text with-border" name="name" id="name" placeholder="First and Last Name" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" name="emailaddress" id="emailaddress" placeholder="Email Address" required/>
+					</div>
+
+					<div class="uploadButton">
+						<input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload-cv" />
+						<label class="uploadButton-button ripple-effect" for="upload-cv">Select File</label>
+						<span class="uploadButton-file-name">Upload your CV / resume relevant file. <br> Max. file size: 50 MB.</span>
+					</div>
+
+				</form>
+				
+				<!-- Button -->
+				<button class="button margin-top-35 full-width button-sliding-icon ripple-effect" type="submit" form="apply-now-form">Apply Now <i class="icon-material-outline-arrow-right-alt"></i></button>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- Apply for a job popup / End -->
+{% endblock content %}
+
+{% block scripts %}
+<!-- Scripts
+================================================== -->
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/tippy.all.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/snackbar.js' %}"></script>
+<script src="{% static 'web_app/js/clipboard.min.js' %}"></script>
+<script src="{% static 'web_app/js/counterup.min.js' %}"></script>
+<script src="{% static 'web_app/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'web_app/js/slick.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+
+// Snackbar for copy to clipboard button
+$('.copy-url-button').click(function() { 
+	Snackbar.show({
+		text: 'Copied to clipboard!',
+	}); 
+}); 
+</script>
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places"></script>
+
+
+{% endblock scripts %}

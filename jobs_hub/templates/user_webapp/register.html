@@ -1,0 +1,228 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Page Content
+================================================== -->
+<section class="py-5 bg-light">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 col-md-10 col-12">
+
+				<div class="login-register-page bg-white bx-sdw">
+					<!-- Welcome Text -->
+					<div class="welcome-text px-5 py-4 border-bottom">
+						<h3>Create your FREE Jobshub Account</h3>
+						<p>You can always join as the other in the future</p>
+
+						<!-- Form -->
+						<form method="POST" id="register-account-form">
+						{% csrf_token %}
+
+						<!-- Account Type -->
+						<div class="account-type mb-0">
+							<div>
+								<input type="radio" name="account_type" id="employer-radio" class="account-type-radio" value="U" checked/>
+								<label for="employer-radio" class="ripple-effect-dark mb-0"><i class="icon-material-outline-account-circle"></i>User Account</label>
+							</div>
+
+							<div>
+								<input type="radio" name="account_type" id="company-radio" class="account-type-radio" value="A" />
+								<label for="company-radio" class="ripple-effect-dark mb-0"><i class="icon-material-outline-business-center"></i>Company Account</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="welcome-foot px-5 py-4">
+
+							<div class="text-center">
+								{% if messages %}
+									{% for message in messages %}
+										<h3 class="alert alert-success text-dark">{{ message }}</h3>
+									{% endfor %}
+								{% endif %} 
+							</div><br>	
+							<div class="input-with-icon-left">
+								<input class="with-border" name="name" type="text" id="name" 
+								placeholder="Your Name" autofocus required="required">
+								<i class="icon-material-outline-account-circle"></i>
+							</div>
+							<div class="input-with-icon-left">
+								<i class="icon-material-baseline-mail-outline"></i>
+								<input type="text" class="input-text with-border" name="email" id="email" 
+								onkeyup="return validateEmail()" placeholder="Email Address" required="required" />
+								<span id="email_error"></span>
+							</div>							
+							<div class="row">
+								<div class="col-3">
+									<div class="input-with-icon-left">
+										<select class="with-border" name="countrycode" type="text" id="name" required="required">
+											<option>+91</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-9">
+									<div class="input-with-icon-left">
+										<i class="icon-feather-phone"></i>
+										<input class="with-border" name="mob_number" type="text" id="mob_number" 
+										onkeyup="return validateMob()" placeholder="Mobile Number" required="required" />
+										<span id="mob_number_error"></span>
+									</div>
+								</div>
+							</div>
+							<div class="input-with-icon-left" title="Should be at least 8 characters long" data-tippy-placement="bottom">
+								<i class="icon-material-outline-lock"></i>
+								<input type="password" class="input-text with-border" name="password" id="password" 
+								onkeyup="return validatePassword()" placeholder="Password" required/>
+								<span id="password_error"></span>
+							</div>
+							<div>
+								 <div class="custom-file mb-3">
+									<input type="file" class="custom-file-input" name="profile_photo" id="customFile">
+									<label class="custom-file-label" for="customFile">Choose Image</label>
+								  </div>
+							</div>
+							 <div class="form-check mb-3">
+							    <input type="checkbox" class="form-check-input box-shadow-none" id="exampleCheck1">
+							    <label class="form-check-label" for="exampleCheck1"> Keep me signed in on this device.</label>
+							  </div>
+						<!-- Button -->
+						<button class="button button-sliding-icon ripple-effect margin-top-10" type="submit">Register<i class="icon-material-outline-arrow-right-alt"></i></button>
+						</form>
+						
+						
+						<!-- Social Login -->
+						<div class="social-login-separator"><span>or</span></div>
+						<p class="mb-0">Already have a Account <a href="{% url 'login' %}"> Login Now</a></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<!-- Scripts
+================================================== -->
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/tippy.all.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/snackbar.js' %}"></script>
+<script src="{% static 'web_app/js/clipboard.min.js' %}"></script>
+<script src="{% static 'web_app/js/counterup.min.js' %}"></script>
+<script src="{% static 'web_app/js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'web_app/js/slick.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+<script src="{% static 'web_app/js/simplebar.min.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<script>
+	
+function validateEmail(){
+    var str = document.getElementById('email').value;
+    var patt = /^([a-zA-Z\.-]+)(.{1,5}?)@([a-zA-Z-]+).([a-z]{2,8})(.[a-z]{2,8}?)$/;
+    if(str != ''){
+        if(str.match(patt)){
+            document.getElementById('email_error').innerHTML = " ";
+            return false;
+        }
+        else {
+            document.getElementById('email_error').innerHTML = "**Invalid email!";
+            document.getElementById('email_error').style.color = "red";
+            return false;
+        }
+    }
+    else {
+        document.getElementById('email_error').innerHTML = " ";
+        return false;
+    }
+    return false; 
+}
+
+function validateMob(){
+    var str = document.getElementById('mob_number').value;
+    var patt = /^[7-9]([0-9]{9})$/;
+    if(str != ''){
+        if(str.match(patt)){
+            document.getElementById('mob_number_error').innerHTML = " ";
+            return false;
+        }
+        else {
+            document.getElementById('mob_number_error').innerHTML = 
+            "Invalid number!";
+            document.getElementById('mob_number_error').style.color = "red";
+            return false;
+        }
+    }
+    else {
+        document.getElementById('mob_number_error').innerHTML = " ";
+        return false;
+    }
+    return false;
+}
+
+function validatePassword(){
+    var str = document.getElementById('password').value;
+    var patt = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9]{6,}$/;
+    if(str != ''){
+        if(str.length < 7){
+            document.getElementById('password_error').innerHTML = 
+            "**Password length must be at least 6 characters!";
+            document.getElementById('password_error').style.color = "red";
+            return false;
+        }
+        else if(str.length > 15){
+            document.getElementById('password_error').innerHTML = 
+            "**Password length must not exceed 15 characters!";
+            document.getElementById('password_error').style.color = "red";
+            return false;
+        }
+        else if(str.match(patt)){
+            document.getElementById('password_error').innerHTML = 
+            "password is valid!";
+            document.getElementById('password_error').style.color = "green";
+            return false;
+        }
+        else if(str.match(patt)!= true){
+            document.getElementById('password_error').innerHTML = 
+            "password is invalid!";
+            document.getElementById('password_error').style.color = "red";
+            return false;
+        }
+    }
+    else {
+        document.getElementById('password_error').innerHTML = " ";
+        return false;
+    }
+    return false;
+}
+</script>
+
+{% endblock scripts %}

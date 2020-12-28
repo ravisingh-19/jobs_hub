@@ -1,0 +1,421 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<div id="titlebar" class="bg-theme py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-white fw-700 text-center">Post your Job</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Page Content
+================================================== -->
+<section class="py-5 bg-light">
+<div class="container">
+	<div class="row">
+		<div class="col-12 content-left-offset">
+			<!-- Row -->
+			<form method="POST" class="row"><!-- Dashboard Box -->
+				{% csrf_token %}
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-4">
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-9">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Job Type</strong></label>
+										<select class="with-border" name="job_type" data-size="7" autofocus title="Select Job Category">
+											<option>Select Job Type</option>
+											<option>Full Time</option>
+											<option>Part Time</option>
+											<option>Freelancer</option>
+										</select>		
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Job Category</strong></label>
+										<select class="with-border" name="job_cat" data-size="7" title="Select Job Category">
+											<option>Select Job Category</option>
+											<option>Admin Support</option>
+											<option>Customer Service</option>
+											<option>Data Analytics</option>
+											<option>Design & Creative</option>
+											<option>Legal</option>
+											<option>Software Developing</option>
+											<option>IT & Networking</option>
+											<option>Writing</option>
+											<option>Translation</option>
+											<option>Sales & Marketing</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Job Sub Category</strong></label>
+										<select class="with-border" name="job_sub" data-size="7" title="Select Sub Category">
+											<option>Select Sub Category</option>
+											<option>Web Design</option>
+											<option>Graphic Design</option>
+											<option>Web Developing</option>
+											<option>Software Engineering</option>
+											<option>HR</option>
+											<option>Marketing</option>
+											
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Job Title</strong></label>
+										<input type="text" name="job_title" class="with-border">
+									</div>
+								</div>	
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-4">
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Company Name</strong></label>
+										<input type="text" name="company_name" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Age Limit</strong></label>
+										<input type="number" name="age_limit" class="with-border" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Uniform</strong></label>
+										<input type="text" name="uniform" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Pay Type</strong></label>
+											<div class="row">
+												<div class="col-6 col-md-4">
+													<div class="custom-control custom-radio custom-control-inline mt-2">
+													    <input type="radio" class="custom-control-input" id="customRadio3" name="pay_type" value="Fixed Pay">
+													    <label class="custom-control-label" for="customRadio3">Fixed Pay</label>
+													</div>		
+												</div>
+												<div class="col-6 col-md-4">
+													<div class="custom-control custom-radio custom-control-inline mt-2">
+													    <input type="radio" class="custom-control-input" id="customRadio4" name="pay_type" value="Hourly Pay">
+													    <label class="custom-control-label" for="customRadio4">Hourly Pay</label>
+													</div>		
+												</div>	
+												<div class="col-6 col-md-4">
+													<div class="custom-control custom-radio custom-control-inline mt-2">
+													    <input type="radio" class="custom-control-input" id="customRadio5" name="pay_type" value="Daily Pay">
+													    <label class="custom-control-label" for="customRadio5">Daily Pay</label>
+													</div>		
+												</div>	
+												<div class="col-6 col-md-4">
+													<div class="custom-control custom-radio custom-control-inline mt-2">
+													    <input type="radio" class="custom-control-input" id="customRadio6" name="pay_type" value="Weekly Pay">
+													    <label class="custom-control-label" for="customRadio6">Weekly Pay</label>
+													</div>		
+												</div>	
+												<div class="col-6 col-md-4">
+													<div class="custom-control custom-radio custom-control-inline mt-2">
+													    <input type="radio" class="custom-control-input" id="customRadio7" name="pay_type" value="Monthly Pay">
+													    <label class="custom-control-label" for="customRadio7">Monthly Pay</label>
+													</div>		
+												</div>		
+											</div>		
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Pay Rate</strong></label>
+										<input type="text" class="with-border" placeholder="Upto 30000 per annum">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Date of Birth</strong></label>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input name="date_of_birth" class="selectpicker with-border" type="date" required>
+											</div>
+											<i class="icon-line-awesome-calendar"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>No. of Openings</strong></label>
+										<input type="number" name="no_of_openning" class="with-border" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Location</strong></label>
+										<input type="text" name="location" class="with-border" placeholder="noida">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Location Instructor</strong></label>
+										<input type="text" name="location_instructor" class="with-border" placeholder="">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Parking</strong></label>
+										<div class="row">
+											<div class="col-md-4">
+												<div class="custom-control custom-radio custom-control-inline mt-2">
+												    <input type="radio" class="custom-control-input" id="customRadio1" name="parking" value="Free Available">
+												    <label class="custom-control-label" for="customRadio1">Free Available</label>
+												</div>		
+											</div>
+											<div class="col-md-4">
+												<div class="custom-control custom-radio custom-control-inline mt-2">
+												    <input type="radio" class="custom-control-input" id="customRadio2" name="parking" value="Paid Available">
+												    <label class="custom-control-label" for="customRadio2">Paid Available</label>
+												</div>		
+											</div>	
+											<div class="col-md-4">
+												<div class="custom-control custom-radio custom-control-inline mt-2">
+												    <input type="radio" class="custom-control-input" id="customRadio2" name="parking" value="Not Available">
+												    <label class="custom-control-label" for="customRadio2">Not Available</label>
+												</div>		
+											</div>		
+										</div>		
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Break Time</strong></label>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="" name="break_time" class="selectpicker with-border" type="time" placeholder="01:00 PM">
+											</div>
+											<i class="icon-feather-clock"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Bio</strong></label>
+										<textarea cols="30" rows="3" name="bio" class="with-border"></textarea>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Preference</strong></label>
+										<input type="text" name="preference" class="with-border" placeholder="">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Appearance Preference</strong></label>
+										<input type="text" name="appearance_preference" class="with-border" placeholder="">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Gender</strong></label>
+										<select class="with-border" name="gender" data-size="7" title="Select Gender">
+											<option value="For Both">For Both</option>
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>View Applicants</strong></label>
+										<select class="with-border" name="view_applicants" data-size="7" title="Select Gender">
+											<option>Pending</option>
+											<option>Approved</option>
+										</select>
+									</div>
+								</div>		
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="col-xl-12 text-center">
+					<button class="button ripple-effect big mt-2"><i class="icon-feather-plus mr-2"></i> Post a Job</button>
+				</div>
+
+			</form>
+			<!-- Row / End -->
+		</div>
+	</div>
+</div>
+</section>
+
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+<script src="{% static 'web_app/js/owl.carousel.js' %}"></script>
+
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<script>
+	Chart.defaults.global.defaultFontFamily = "Nunito";
+	Chart.defaults.global.defaultFontColor = '#888';
+	Chart.defaults.global.defaultFontSize = '14';
+
+	var ctx = document.getElementById('chart').getContext('2d');
+
+	var chart = new Chart(ctx, {
+		type: 'line',
+
+		// The data for our dataset
+		data: {
+			labels: ["January", "February", "March", "April", "May", "June"],
+			// Information about the dataset
+	   		datasets: [{
+				label: "Views",
+				backgroundColor: 'rgba(42,65,232,0.08)',
+				borderColor: '#2a41e8',
+				borderWidth: "3",
+				data: [196,132,215,362,210,252],
+				pointRadius: 5,
+				pointHoverRadius:5,
+				pointHitRadius: 10,
+				pointBackgroundColor: "#fff",
+				pointHoverBackgroundColor: "#fff",
+				pointBorderWidth: "2",
+			}]
+		},
+
+		// Configuration options
+		options: {
+
+		    layout: {
+		      padding: 10,
+		  	},
+
+			legend: { display: false },
+			title:  { display: false },
+
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: false
+					},
+					gridLines: {
+						 borderDash: [6, 10],
+						 color: "#d8d8d8",
+						 lineWidth: 1,
+	            	},
+				}],
+				xAxes: [{
+					scaleLabel: { display: false },  
+					gridLines:  { display: false },
+				}],
+			},
+
+		    tooltips: {
+		      backgroundColor: '#333',
+		      titleFontSize: 13,
+		      titleFontColor: '#fff',
+		      bodyFontColor: '#fff',
+		      bodyFontSize: 13,
+		      displayColors: false,
+		      xPadding: 10,
+		      yPadding: 10,
+		      intersect: false
+		    }
+		},
+
+
+});
+
+</script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+
+	// Autocomplete adjustment for homepage
+	if ($('.intro-banner-search-form')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	    }, 300);
+	}
+
+</script>
+<script>
+$(document).ready(function() {
+ $(".owl_carousel").owlCarousel({
+   //navigation : true,
+   nav:true,
+   dots:false,
+   navText:['',''],
+   loop : true,
+   responsive:{
+       0:{
+           items:1
+       },
+       600:{
+           items:2
+       },
+       1000:{
+           items:4
+       }
+   }
+ });
+});
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places&amp;callback=initAutocomplete"></script>
+
+{% endblock scripts %}

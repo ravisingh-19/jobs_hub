@@ -1,0 +1,149 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+<section class="how-it-works text-center section py-5 bg-light">
+	<div class="container">
+		<div class="centered mb-5">
+		<h3 class="mb-2 text-uppercase"><strong>How It Works?</strong></h3>
+		<h1 class="display-4 fw-700 mb-3">Let's make your next<br>great hire. Fast.</h1>
+		<h1>You know who you're looking for.<br>We'll help you find them.</h1>
+	</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="work-process p-4 bg-white rounded bx-sdw">
+				<span class="process-icon">
+				<i class="icon-feather-user display-4"></i>
+				</span>
+				<h3 class="mt-4 mb-3"><strong>Create an Account</strong></h3>
+				<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="work-process step-2 p-4 bg-white rounded bx-sdw">
+				<span class="process-icon">
+				<i class="icon-feather-search display-4"></i>
+				</span>
+				<h3 class="mt-4 mb-3"><strong>Search Jobs</strong></h3>
+				<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+			</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="work-process step-3 p-4 bg-white rounded bx-sdw">
+				<span class="process-icon">
+				 <i class="icon-line-awesome-trophy display-4"></i>
+				</span>
+				<h3 class="mt-4 mb-3"><strong>Apply</strong></h3>
+				<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers find place best.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- Membership Plans -->
+<div class="section padding-top-60 padding-bottom-75">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="section-view">
+					<img src="{% static 'web_app/images/job-app.png' %}" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<!-- Section Headline -->
+				<div class="app-content">
+					<h1 class="mb-2"><strong>Work now. Get Paid. Work more when you want.</strong></h1>
+					<p>Jobshub gives you the flexibility to control<br>
+when, where, and how you spend your day.</p>
+					<div class="d-flex mb-3">
+						<a href="" target="_blank"><img src="{% static 'web_app/images/ios-app.png' %}" width="180" class="img-fluid mr-3"></a>
+						<a href="" target="_blank"><img src="{% static 'web_app/images/android-app.png' %}" width="180" class="img-fluid mr-3"></a>
+					</div>
+					<h4><strong><i>Available on iOS and Android</i></strong></h4>
+					<div class="row mt-4">
+						<div class="col-12">
+							<div class="intro-banner-search-form rounded-pill border">
+								<div class="intro-search-field with-label">
+									<div class="input-with-icon">
+									<input id="intro-keywords" type="text" placeholder="Enter your Mobile Number" class="pl-4">
+									</div>
+								</div>
+								<div class="intro-search-button">
+									<button class="button ripple-effect text-uppercase rounded-pill" onclick="">Get App</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Membership Plans / End-->
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+<script src="{% static 'web_app/js/owl.carousel.js' %}"></script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+
+	// Autocomplete adjustment for homepage
+	if ($('.intro-banner-search-form')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	    }, 300);
+	}
+
+</script>
+<script>
+$(document).ready(function() {
+ $(".owl_carousel").owlCarousel({
+   //navigation : true,
+   nav:true,
+   dots:false,
+   navText:['',''],
+   loop : true,
+   responsive:{
+       0:{
+           items:1
+       },
+       600:{
+           items:2
+       },
+       1000:{
+           items:4
+       }
+   }
+ });
+});
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places&amp;callback=initAutocomplete"></script>
+
+{% endblock scripts %}

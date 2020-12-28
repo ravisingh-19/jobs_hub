@@ -1,0 +1,624 @@
+{% extends 'user_webapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<div id="titlebar" class="bg-secondary py-4 border-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 class="text-white fw-700">User Profile</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Page Content
+================================================== -->
+<section class="py-5 bg-light">
+<div class="container">
+	<div class="row">
+		<div class="col-xl-3 col-lg-4">
+			<div class="sidebar-container position-sticky">
+				
+				<!-- Side menu -->
+				<div class="sidebar-widget bx-sdw bg-white p-4">
+					<h3 class="fw-700">Quick Links</h3>
+					<ul class="list-inline mb-0">
+						<li><a href="" class="text-dark">General Profile</a></li>
+						<li><a href="" class="text-dark">Education Info </a></li>
+						<li><a href="" class="text-dark">Experience Info</a></li>
+						<li><a href="{% url 'reset-password' %}" class="text-dark">Reset Password</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-xl-9 col-lg-8 content-left-offset">
+			<!-- Row -->
+			<form class="row" method="POST">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-3">
+						<!-- Headline -->
+						<div class="headline">
+							<h2 class="fw-700">General Info</h2>
+						</div>
+
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>First Name</strong></label>
+										<input type="text" name="first_name" class="with-border" autofocus required>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Middle Name</strong></label>
+										<input type="text" name="middle_name" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Last Name</strong></label>
+										<input type="text" name="last_name" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Zip Code</strong></label>
+										<input type="text" name="zip_code" class="with-border" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Date of Birth</strong></label>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="" name="dateOfbirth" class="selectpicker with-border" type="date" required>
+											</div>
+											<i class="icon-line-awesome-calendar"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Gender</strong></label>
+										<select class="with-border" name="gender" data-size="7" title="Select Gender" required>
+											<option>Male</option>
+											<option>Female</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Email</strong></label>
+										<input type="text" name="email" class="with-border" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Nationality</strong></label>
+										<select class="with-border" name="nationality" data-size="7" title="Select Nationality" required>
+											<option>Indian</option>
+											<option>Canadian</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<label class="text-dark"><strong>Upload ID Proof </strong></label>
+									 <div class="custom-file mb-3">
+									    <input type="file" class="custom-file-input" name="id_proof" id="customFile">
+									    <label class="custom-file-label" for="customFile">Choose file</label>
+									  </div>
+									  <p>(Upload doc like Adhaar, Passport, driving license etc)</p>
+								</div>		
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-3">
+						<!-- Headline -->
+						<div class="headline">
+							<h2 class="fw-700 d-flex justify-content-between">Education Info <small><a href="" class="text-secondary">+ Add Education</a></small></h2>
+						</div>
+
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Education</strong></label>
+										<select class="with-border" name="education" data-size="7" title="Select Education">
+											<option>High School</option>
+											<option>Intermediate</option>
+											<option>Graduate</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Course</strong></label>
+										<select class="with-border" name="course" data-size="7" title="Select Course">
+											<option>Science</option>
+											<option>Commerce</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Board/University Name</strong></label>
+										<select class="with-border" name="university_name" data-size="7" title="Select University">
+											<option>UP Board</option>
+											<option>CBSE Board</option>
+											<option>ICSE Board</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>College Name</strong></label>
+										<select class="with-border" name="college_name" data-size="7" title="Select College" required>
+											<option>Abes Engineering College</option>
+											<option>JSS Engineering College</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Course Type</strong></label>
+											<div class="custom-control custom-radio custom-control-inline mt-2">
+											    <input type="radio" class="custom-control-input" id="customRadio" name="course_type" value="customEx">
+											    <label class="custom-control-label" for="customRadio">Full Time</label>
+											</div>											
+										  <div class="custom-control custom-radio custom-control-inline mt-2">
+										    <input type="radio" class="custom-control-input" id="customRadio2" name="course_type" value="customEx">
+										    <label class="custom-control-label" for="customRadio2">Part Time</label>
+										  </div>											
+										  <div class="custom-control custom-radio custom-control-inline mr-0">
+										    <input type="radio" class="custom-control-input" id="customRadio3" name="course_type" value="customEx">
+										    <label class="custom-control-label" for="customRadio3">Correspondence</label>
+										  </div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Passing Out Year</strong></label>
+										<input type="text" name="passing_out_year" class="with-border" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Grading System</strong></label>
+										<input type="text" name="grading_system" class="with-border">
+									</div>
+								</div>	
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-3">
+						<!-- Headline -->
+						<div class="headline">
+							<h2 class="fw-700">Experience/ Accreditation Info </h2>
+						</div>
+
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Organization Name</strong></label>
+										<input type="text" name="org_name" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Position</strong></label>
+										<input type="text" name="position" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Starting Date</strong></label>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="" name="starting_date" class="selectpicker with-border" type="date" >
+											</div>
+											<i class="icon-line-awesome-calendar"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>End Date</strong></label>
+										<div class="input-with-icon">
+											<div id="autocomplete-container">
+												<input id="" name="ending_date" class="selectpicker with-border" type="date">
+											</div>
+											<i class="icon-line-awesome-calendar"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Bio</strong></label>
+										<textarea cols="30" rows="3" name="bio" class="with-border"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<label class="text-dark"><strong>Upload Documents </strong></label>
+									 <div class="custom-file mb-3">
+									    <input type="file" class="custom-file-input" name="upload_documents" id="customFile">
+									    <label class="custom-file-label" for="customFile">Choose file</label>
+									  </div>
+									  <p> (Upload doc like  experience letter, recommendation letter etc)</p>
+								</div>		
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-3">
+						<!-- Headline -->
+						<div class="headline">
+							<h2 class="fw-700 d-flex justify-content-between">Job Preference</h2>
+						</div>
+
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Job category <i class="help-icon" data-tippy-placement="right" title="Maximum of 10 tags"></i></strong></label>
+										<div class="keywords-container">
+											<div class="keyword-input-container">
+												<input type="text" name="job_category" class="keyword-input with-border" placeholder="e.g. job title, responsibilites"/>
+												<button class="keyword-input-button ripple-effect"><i class="icon-material-outline-add"></i></button>
+											</div>
+											<div class="keywords-list"><!-- keywords go here --></div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Location Range <i class="help-icon" data-tippy-placement="right" title="Maximum of 10 tags"></i></strong></label>
+										<div class="keywords-container">
+											<div class="keyword-input-container">
+												<input type="text" name="area" class="keyword-input with-border" placeholder="e.g. job location, area"/>
+												<button class="keyword-input-button ripple-effect"><i class="icon-material-outline-add"></i></button>
+											</div>
+											<div class="keywords-list"><!-- keywords go here --></div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Own Reliable Transportation</strong></label>
+											<div class="custom-control custom-radio custom-control-inline mt-2">
+											    <input type="radio" class="custom-control-input" id="customRadio4" name="transportation" value="customEx">
+											    <label class="custom-control-label" for="customRadio4">Yes</label>
+											</div>											
+										  <div class="custom-control custom-radio custom-control-inline mt-2">
+										    <input type="radio" class="custom-control-input" id="customRadio5" name="transportation" value="customEx">
+										    <label class="custom-control-label" for="customRadio5">No</label>
+										  </div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Preferred pay rate for different job positions</strong></label>
+										<input type="text" name="pay" class="with-border">
+									</div>
+								</div>	
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-3">
+						<!-- Headline -->
+						<div class="headline">
+							<h2 class="fw-700">Certification Info (optional)</h2>
+						</div>
+
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Title</strong></label>
+										<input type="text" name="title" class="with-border">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Discription</strong></label>
+										<textarea cols="30" rows="3" name="description" class="with-border"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<label class="text-dark"><strong>Image </strong></label>
+									 <div class="custom-file mb-3">
+									    <input type="file" class="custom-file-input" name="image" id="customFile">
+									    <label class="custom-file-label" for="customFile">Choose file</label>
+									  </div>
+								</div>		
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box bg-white margin-top-0 mb-3">
+						<form method="POST">
+							{% csrf_token %}
+						<!-- Headline -->
+						<div class="headline">
+							<h2 class="fw-700 d-flex justify-content-between">Language</h2>
+						</div>
+
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Languages</strong></label>
+										<input type="text" name="language" class="with-border" placeholder="Languages 1">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Spoken</strong></label>
+										<select class="with-border" name="spoken" data-size="7" title="Select">
+											<option>Beginner</option>
+											<option>Average</option>
+											<option>Expert</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<label class="text-dark"><strong>Written</strong></label>
+										<select class="with-border" name="written" data-size="7" title="Select">
+											<option>Beginner</option>
+											<option>Average</option>
+											<option>Expert</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="submit-field">
+										<input type="text" class="with-border" placeholder="Languages 2">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<select class="with-border" data-size="7" title="Select">
+											<option>Beginner</option>
+											<option>Average</option>
+											<option>Expert</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<select class="with-border" data-size="7" title="Select">
+											<option>Beginner</option>
+											<option>Average</option>
+											<option>Expert</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="submit-field">
+										<input type="text" class="with-border" placeholder="Languages 3">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<select class="with-border" data-size="7" title="Select">
+											<option>Beginner</option>
+											<option>Average</option>
+											<option>Expert</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="submit-field">
+										<select class="with-border" data-size="7" title="Select">
+											<option>Beginner</option>
+											<option>Average</option>
+											<option>Expert</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-12">
+					<button class="button button-sliding-icon ripple-effect margin-top-10" type="submit">Update<i class="icon-material-outline-arrow-right-alt"></i></button>
+						
+				</div>
+
+			</form>
+			<!-- Row / End -->
+		</div>
+	</div>
+</div>
+</section>
+
+
+</div>
+<!-- Wrapper / End -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'web_app/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'web_app/js/jquery-migrate-3.1.0.min.html' %}"></script>
+<script src="{% static 'web_app/js/mmenu.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'web_app/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'web_app/js/custom.js' %}"></script>
+<script src="{% static 'web_app/js/owl.carousel.js' %}"></script>
+
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
+
+<script>
+	Chart.defaults.global.defaultFontFamily = "Nunito";
+	Chart.defaults.global.defaultFontColor = '#888';
+	Chart.defaults.global.defaultFontSize = '14';
+
+	var ctx = document.getElementById('chart').getContext('2d');
+
+	var chart = new Chart(ctx, {
+		type: 'line',
+
+		// The data for our dataset
+		data: {
+			labels: ["January", "February", "March", "April", "May", "June"],
+			// Information about the dataset
+	   		datasets: [{
+				label: "Views",
+				backgroundColor: 'rgba(42,65,232,0.08)',
+				borderColor: '#2a41e8',
+				borderWidth: "3",
+				data: [196,132,215,362,210,252],
+				pointRadius: 5,
+				pointHoverRadius:5,
+				pointHitRadius: 10,
+				pointBackgroundColor: "#fff",
+				pointHoverBackgroundColor: "#fff",
+				pointBorderWidth: "2",
+			}]
+		},
+
+		// Configuration options
+		options: {
+
+		    layout: {
+		      padding: 10,
+		  	},
+
+			legend: { display: false },
+			title:  { display: false },
+
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: false
+					},
+					gridLines: {
+						 borderDash: [6, 10],
+						 color: "#d8d8d8",
+						 lineWidth: 1,
+	            	},
+				}],
+				xAxes: [{
+					scaleLabel: { display: false },  
+					gridLines:  { display: false },
+				}],
+			},
+
+		    tooltips: {
+		      backgroundColor: '#333',
+		      titleFontSize: 13,
+		      titleFontColor: '#fff',
+		      bodyFontColor: '#fff',
+		      bodyFontSize: 13,
+		      displayColors: false,
+		      xPadding: 10,
+		      yPadding: 10,
+		      intersect: false
+		    }
+		},
+
+
+});
+
+</script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+
+	// Autocomplete adjustment for homepage
+	if ($('.intro-banner-search-form')[0]) {
+	    setTimeout(function(){ 
+	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	    }, 300);
+	}
+
+</script>
+<script>
+$(document).ready(function() {
+ $(".owl_carousel").owlCarousel({
+   //navigation : true,
+   nav:true,
+   dots:false,
+   navText:['',''],
+   loop : true,
+   responsive:{
+       0:{
+           items:1
+       },
+       600:{
+           items:2
+       },
+       1000:{
+           items:4
+       }
+   }
+ });
+});
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaoOT9ioUE4SA8h-anaFyU4K63a7H-7bc&amp;libraries=places&amp;callback=initAutocomplete"></script>
+
+{% endblock scripts %}
