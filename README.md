@@ -1,1 +1,1 @@
-# jobs_hub
+# jobs_hub project using django
